@@ -27,6 +27,11 @@ var headerJSX = React.createElement(
     'h2',
     null,
     'The best syntax ever!'
+  ),
+  React.createElement(
+    'p',
+    null,
+    'This is a paragraph'
   )
 );
 

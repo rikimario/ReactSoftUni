@@ -20,8 +20,9 @@ const headerJSX = (
   <header className='site-header'>
     <h1>Hello from JSX!</h1>
     <h2>The best syntax ever!</h2>
-  </header>
 
+    <p>This is a paragraph</p>
+  </header>
 );
 
 root.render(headerJSX);
