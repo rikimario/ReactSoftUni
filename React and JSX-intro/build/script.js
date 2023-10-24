@@ -1,10 +1,9 @@
 import '../node_modules/react/umd/react.production.min.js';
 import '../node_modules/react-dom/umd/react-dom.production.min.js';
 
+var rootDomElement = document.getElementById('root');
 
-const rootDomElement = document.getElementById('root');
-
-const root = ReactDOM.createRoot(rootDomElement);
+var root = ReactDOM.createRoot(rootDomElement);
 
 // const reactHeading = React.createElement('h1', {}, 'Hello from JSX!');
 // const reactSecondHeading = React.createElement('h2', {}, 'The best syntax ever!');
@@ -16,12 +15,19 @@ const root = ReactDOM.createRoot(rootDomElement);
 //   reactHeading,
 //   reactSecondHeading);
 
-const headerJSX = (
-  <header className='site-header'>
-    <h1>Hello from JSX!</h1>
-    <h2>The best syntax ever!</h2>
-  </header>
-
+var headerJSX = React.createElement(
+  'header',
+  { className: 'site-header' },
+  React.createElement(
+    'h1',
+    null,
+    'Hello from JSX!'
+  ),
+  React.createElement(
+    'h2',
+    null,
+    'The best syntax ever!'
+  )
 );
 
 root.render(headerJSX);
