@@ -2,7 +2,7 @@
 export default function Movie(props) {
   return (
     <article>
-      <h3>Title: {props.data.title}</h3>
+      <h8>Title: {props.data.title}</h8>
       <p>Description: {props.data.description}</p>
     </article>
   )
