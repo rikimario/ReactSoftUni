@@ -1,34 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react"
+import AddButton from "./components/AddButton.jsx"
+import Footer from "./components/Footer.jsx"
+import Heading from "./components/Heading.jsx"
+import Loading from "./components/Loading.jsx"
+import Todos from "./components/Todos.jsx"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    fetch(`http://localhost:3030/jsonstore/todos`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Heading />
+
+      <main className="main">
+
+        <section className="todo-list-container">
+          <h1>Todo List</h1>
+
+          <AddButton />
+
+          <div className="table-wrapper">
+
+            {/* <Loading /> */}
+
+            <Todos />
+
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   )
 }
 
