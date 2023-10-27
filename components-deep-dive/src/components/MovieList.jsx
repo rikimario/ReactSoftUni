@@ -3,6 +3,7 @@ import Movie from "./Movie";
 export default function MovieList({
     movies,
     onMovieDelete,
+    onMovieSelect,
 }) {
 
     // let movieList = movies.map(movie => <li><Movie {...movie} /></li>)
@@ -10,7 +11,11 @@ export default function MovieList({
     return (
         <ul>
             {movies.map(movie =>
-                <Movie key={movie.id} {...movie} onMovieDelete={onMovieDelete} />
+                <Movie
+                    key={movie.id}
+                    {...movie}
+                    onMovieDelete={onMovieDelete}
+                    onMovieSelect={onMovieSelect} />
             )}
         </ul>
     )
