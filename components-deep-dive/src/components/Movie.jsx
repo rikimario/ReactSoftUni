@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import styles from './Movie.module.css';
+
+
 export default function Movie({
     id,
     title,
@@ -6,11 +10,27 @@ export default function Movie({
     posterUrl,
     director,
     onMovieDelete,
+    onMovieSelect,
+    selected,
 }) {
 
+    useEffect(() => {
+        console.log(`Movies ${title} - mounted!`);
+
+        return () => {
+            console.log(`Movies ${title} - unmounted!`);
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log(`Movies ${title} - updated!`);
+    }, [selected]);
+
+
     return (
-        <article>
+        <article className={styles['movie-article']}>
             <h3>{title}, {year}</h3>
+            {selected && <h4>Selected</h4>}
             <main>
                 <img src={posterUrl} alt={title} />
                 <p>{plot}</p>
@@ -18,6 +38,7 @@ export default function Movie({
             <footer>
                 <p>director: {director}</p>
                 <button onClick={() => onMovieDelete(id)}>Delete</button>
+                <button onClick={() => onMovieSelect(id)}>Select</button>
             </footer>
         </article>
     )
