@@ -1,6 +1,20 @@
 import User from "./User.jsx";
 
-export default function UserList() {
+export default function UserList(
+    // {
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     imageUrl,
+    //     phoneNumber,
+    //     address: {
+    //         country: string,
+    //         city,
+    //         street,
+    //         streetNumber,
+    //     },
+    // }
+) {
     return (
         <div className="table-wrapper">
 
