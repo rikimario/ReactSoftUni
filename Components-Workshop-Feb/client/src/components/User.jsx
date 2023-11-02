@@ -1,4 +1,18 @@
-export default function User() {
+export default function User(
+    // {
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     imageUrl,
+    //     phoneNumber,
+    //     address: {
+    //       country: string,
+    //       city,
+    //       street,
+    //       streetNumber,
+    //     },
+    //   }
+) {
     return (
         <tr>
             <td>
