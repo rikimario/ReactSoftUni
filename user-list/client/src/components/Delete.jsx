@@ -1,7 +1,9 @@
-export default function Delete() {
+export default function Delete({
+    hideModal,
+}) {
     return (
         <div class="overlay">
-            <div class="backdrop"></div>
+            <div class="backdrop" onClick={hideModal}></div>
             <div class="modal">
                 <div class="confirm-container">
                     <header class="headers">
@@ -18,7 +20,7 @@ export default function Delete() {
                     <div class="actions">
                         <div id="form-actions">
                             <button id="action-save" class="btn" type="submit">Delete</button>
-                            <button id="action-cancel" class="btn" type="button">
+                            <button id="action-cancel" class="btn" type="button" onClick={hideModal}>
                                 Cancel
                             </button>
                         </div>
