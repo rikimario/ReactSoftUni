@@ -3,6 +3,7 @@ import * as userServices from "../services/userServices.js";
 import { useEffect, useState } from "react";
 import CreateUserModal from "./CreateUserModal.jsx";
 import UserInfoModal from "./UserInfoModal.jsx";
+import UserDeleteModal from "./UserDeleteModal.jsx";
 
 
 
@@ -10,6 +11,7 @@ export default function UserListTable() {
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
@@ -42,6 +44,15 @@ export default function UserListTable() {
         setShowInfo(true);
     };
 
+    const deleteUserClickHandler = async (userId) => {
+        setSelectedUser(userId);
+        setShowDelete(true);
+    };
+
+    const deleteUserHandler = async () => {
+        console.log('delete user');
+    };
+
     const hideInfoUserModal = () => {
         setShowInfo(false);
     };
@@ -60,6 +71,12 @@ export default function UserListTable() {
                 userId={selectedUser}
                 hideModal={hideInfoUserModal}
             />}
+
+            {showDelete &&
+                <UserDeleteModal
+                    onClose={() => setShowDelete(false)}
+                    onDelete={deleteUserHandler}
+                />}
 
             <table className="table">
                 <thead>
@@ -129,6 +146,7 @@ export default function UserListTable() {
                             lastName={user.lastName}
                             phoneNumber={user.phoneNumber}
                             onInfoClick={userInfoClickHandler}
+                            onDeleteClick={deleteUserClickHandler}
                         />
 
                     ))}
