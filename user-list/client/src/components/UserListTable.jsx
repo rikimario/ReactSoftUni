@@ -50,11 +50,11 @@ export default function UserListTable() {
     };
 
     const deleteUserHandler = async () => {
-        console.log('delete user');
-    };
+        // const result = await userServices.remove(selectedUser);
 
-    const hideInfoUserModal = () => {
-        setShowInfo(false);
+        setUsers(state => state.filter(user => user._id !== selectedUser));
+
+        setShowDelete(false);
     };
 
     return (
@@ -67,16 +67,16 @@ export default function UserListTable() {
             />)};
 
             {showInfo && <UserInfoModal
-                onClick={() => setShowInfo(false)}
+                hideModal={() => setShowInfo(false)}
                 userId={selectedUser}
-                hideModal={hideInfoUserModal}
             />}
 
             {showDelete &&
                 <UserDeleteModal
-                    onClose={() => setShowDelete(false)}
+                    hideModal={() => setShowDelete(false)}
                     onDelete={deleteUserHandler}
-                />}
+                />
+            }
 
             <table className="table">
                 <thead>
