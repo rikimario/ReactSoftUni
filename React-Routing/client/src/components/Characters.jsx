@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import CharacterCards from './CharacterCards.jsx';
+import styles from './CharacterLists.module.css';
+
 const base_url = 'https://swapi.dev/api';
 
 const CharacterList = () => {
@@ -13,9 +16,11 @@ const CharacterList = () => {
     }, []);
 
     return (
-        <ul>
-            {characters.map(character => <li key={character.name}>{character.name}</li>)}
-        </ul>
+        <div className={styles.characterList}>
+            {characters.map(character =>
+                <CharacterCards key={character.name} {...character} />
+            )}
+        </div>
     )
 };
 
