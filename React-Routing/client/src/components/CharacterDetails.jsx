@@ -14,6 +14,12 @@ const CharacterDetails = () => {
     return (
         <>
             <h1>{character.name}</h1>
+            <ul>
+                <li>{character.hair_color}</li>
+                <li>{character.eye_color}</li>
+                <li>{character.birth_year}</li>
+                <li>{character.gander}</li>
+            </ul>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore modi delectus earum aperiam laboriosam fugiat magnam, quam culpa eos hic corporis nemo cupiditate aliquam enim nisi, odio dolorum, eveniet voluptate.</p>
         </>
