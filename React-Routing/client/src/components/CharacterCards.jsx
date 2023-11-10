@@ -20,7 +20,6 @@ const CharacterCards = ({
                         <li>hair_color: {hair_color}</li>
                         <li>eye_color: {eye_color}</li>
                         <li>birth_year: {birth_year}</li>
-                        <li>gander: {gander}</li>
                     </ul>
                 </Card.Text>
                 <Button as={Link} to={`/characters/${id}`} variant="primary">Details</Button>
