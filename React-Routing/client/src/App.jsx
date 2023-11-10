@@ -4,7 +4,7 @@ import Navigation from './components/Navigation.jsx';
 import Home from './components/Home';
 import About from './components/About.jsx';
 import Contacts from './components/Contacts.jsx';
-import CharacterList from './components/Characters.jsx';
+import CharacterList from './components/CharacterList.jsx';
 
 function App() {
 
