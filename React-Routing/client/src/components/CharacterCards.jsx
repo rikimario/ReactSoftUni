@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { normalizeName } from '../utils/characterUtils.js';
 
 const CharacterCards = ({
+    id,
     name,
     hair_color,
     eye_color,
@@ -22,7 +23,7 @@ const CharacterCards = ({
                         <li>gander: {gander}</li>
                     </ul>
                 </Card.Text>
-                <Button as={Link} to={`/characters/${normalizeName}`} variant="primary">Details</Button>
+                <Button as={Link} to={`/characters/${id}`} variant="primary">Details</Button>
             </Card.Body>
         </Card>
     );
