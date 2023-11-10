@@ -6,6 +6,8 @@ import About from './components/About.jsx';
 import Contacts from './components/Contacts.jsx';
 import CharacterList from './components/CharacterList.jsx';
 import CharacterDetails from './components/CharacterDetails.jsx';
+import NotFound from './components/NotFound.jsx';
+
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/characters' element={<CharacterList />} />
         <Route path='/characters/:id' element={<CharacterDetails />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       <footer>All rights reserved &copy;</footer>
