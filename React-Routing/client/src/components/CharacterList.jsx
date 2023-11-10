@@ -17,8 +17,8 @@ const CharacterList = () => {
 
     return (
         <div className={styles.characterList}>
-            {characters.map(character =>
-                <CharacterCards key={character.name} {...character} />
+            {characters.map((character, index) =>
+                <CharacterCards key={character.name} id={index + 1} {...character} />
             )}
         </div>
     )
