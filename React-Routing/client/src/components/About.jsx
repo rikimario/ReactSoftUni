@@ -1,9 +1,17 @@
+import { Link, Outlet } from "react-router-dom";
+
+
 const About = () => {
     return (
         <>
             <h2>About</h2>
+            <nav>
+                <Link to='us'>About Us</Link>
+                <Link to='mission'>Mission</Link>
+                <Link to='values'>Our Values</Link>
+            </nav>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores odio nihil tempora labore, culpa autem aut doloribus ipsa laborum ut mollitia numquam expedita voluptatum harum at eaque nisi possimus ducimus!</p>
+            <Outlet />
         </>
     );
 };
