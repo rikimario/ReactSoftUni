@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function GameList() {
   return (
     <section id="catalog-page">
@@ -8,9 +10,9 @@ export default function GameList() {
           <img src="./images/avatar-1.jpg" />
           <h6>Action</h6>
           <h2>Cover Fire</h2>
-          <a href="#" className="details-button">
+          <Link to="/details" className="details-button">
             Details
-          </a>
+          </Link>
         </div>
       </div>
       <div className="allGames">
