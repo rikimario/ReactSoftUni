@@ -1,8 +1,10 @@
+import Header from "./components/Header/Header";
+
 function App() {
   return (
-    <>
-      <h1>Hello from The Bed!</h1>
-    </>
+    <div id="box">
+      <Header />
+    </div>
   );
 }
 
