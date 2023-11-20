@@ -5,10 +5,13 @@ import * as commentService from "../../services/commentService";
 
 export default function Details() {
   const [game, setGame] = useState({});
+  const [comments, setComments] = useState([]);
   const { gameId } = useParams();
 
   useEffect(() => {
     gameService.getOne(gameId).then(setGame);
+
+    commentService.getAll(gameId).then(setComments);
   }, [gameId]);
 
   const addCommentHandler = async (e) => {
@@ -22,7 +25,7 @@ export default function Details() {
       formData.get("comment")
     );
 
-    console.log(newComment);
+    setComments((state) => [...state, newComment]);
   };
 
   return (
@@ -36,17 +39,28 @@ export default function Details() {
           <p className="type">{game.category}</p>
         </div>
         <p className="text">{game.summary}</p>
+
+        <div className="details-comments">
+          <h2>Comments:</h2>
+          <ul>
+            {comments.map(({ _id, username, text }) => (
+              <li key={_id} className="comment">
+                <p>
+                  {username}: {text}
+                </p>
+              </li>
+            ))}
+          </ul>
+          {/* Display paragraph: If there are no games in the database */}
+          {comments.length === 0 && <p className="no-comment">No comments.</p>}
+        </div>
       </div>
 
       <article className="create-comment">
         <label>Add new comment:</label>
         <form className="form" onSubmit={addCommentHandler}>
           <input type="text" name="username" placeholder="username" />
-          <textarea
-            name="comment"
-            placeholder="Comment......"
-            defaultValue={""}
-          />
+          <textarea name="comment" placeholder="Comment......" />
           <input
             className="btn submit"
             type="submit"
