@@ -1,9 +1,11 @@
 import Cards from "./Card";
 
-export default function CardContainer() {
+export default function CardContainer({ todos }) {
   return (
     <div style={{ margin: "20px" }}>
-      <Cards />
+      {todos.map((item) => (
+        <Cards key={item._id} {...item} />
+      ))}
     </div>
   );
 }
