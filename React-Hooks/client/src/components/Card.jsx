@@ -3,7 +3,12 @@ import Card from "react-bootstrap/Card";
 
 export default function Cards({ _id, title, isFinish }) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card
+      style={{
+        width: "18rem",
+        margin: "20px",
+      }}
+    >
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>state: {isFinish}</Card.Text>
