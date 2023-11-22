@@ -59,7 +59,6 @@ export default function Details() {
       <article className="create-comment">
         <label>Add new comment:</label>
         <form className="form" onSubmit={addCommentHandler}>
-          <input type="text" name="username" placeholder="username" />
           <textarea name="comment" placeholder="Comment......" />
           <input
             className="btn submit"
