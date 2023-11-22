@@ -24,16 +24,19 @@ function App() {
     navigate(Path.Home);
   };
 
-  const registerSubmitHandler = async (value) => {
-    console.log(value);
+  const registerSubmitHandler = async (values) => {
+    const result = await authService.register(values.email, values.password);
+
+    setAuth(result);
+    navigate(Path.Home);
   };
 
   const value = {
     loginSubmitHandler,
     registerSubmitHandler,
-    username: auth.username,
+    username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.username,
+    isAuthenticated: !!auth.email,
   };
   return (
     <AuthContext.Provider value={value}>
@@ -44,7 +47,7 @@ function App() {
           <Route path={Path.Home} element={<Home />} />
           <Route path="/games" element={<GameList />} />
           <Route path="/create-game" element={<Create />} />
-          <Route path="/login" element={<Login />} />
+          <Route path={Path.Login} element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/games/:gameId" element={<Details />} />
         </Routes>
