@@ -20,6 +20,7 @@ export default function Header() {
           <div id="user">
             <Link to="/create-game">Create Game</Link>
             <Link to="/logout">Logout</Link>
+            <span>| {username}</span>
           </div>
         )}
         {/* Guest users */}
