@@ -1,4 +1,4 @@
-const buildOprions = (data) => {
+const buildOptions = (data) => {
   const options = {};
 
   if (data) {
@@ -13,7 +13,7 @@ const buildOprions = (data) => {
 
 export const request = async (method, url, data) => {
   const response = await fetch(url, {
-    ...buildOprions(data),
+    ...buildOptions(data),
     method,
   });
 
