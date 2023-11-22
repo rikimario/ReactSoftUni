@@ -12,6 +12,7 @@ import Create from "./components/Create/Create";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Details from "./components/Details/Details";
+import Logout from "./components/Logout/Logout";
 
 function App() {
   const navigate = useNavigate();
@@ -31,12 +32,18 @@ function App() {
     navigate(Path.Home);
   };
 
+  const logoutHandler = () => {
+    setAuth({});
+    navigate(Path.Home);
+  };
+
   const value = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   };
   return (
     <AuthContext.Provider value={value}>
@@ -50,6 +57,7 @@ function App() {
           <Route path={Path.Login} element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/games/:gameId" element={<Details />} />
+          <Route path={Path.Logout} element={<Logout />} />
         </Routes>
       </div>
     </AuthContext.Provider>
